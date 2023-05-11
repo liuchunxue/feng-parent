@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.feng.module.test.dao.TestMapper">
+    <select id="listConfig" resultType="com.feng.module.test.entity.Config">
+        select * from sys_config limit 10
+    </select>
+</mapper>

@@ -1,0 +1,59 @@
+server:
+    port: 80
+    tomcat:
+      uri-encoding: UTF-8
+      max-threads: 10000
+      max-connections: 20000
+mybatis:
+    mapper-locations: classpath:mapping/*.xml
+    type-aliases-package: com.feng.module.*.entity
+    configuration:
+        map-underscore-to-camel-case: true
+mybatis-plus:
+    configuration:
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+        map-underscore-to-camel-case: true
+
+spring:
+    rabbitmq:
+        host: 192.168.1.222
+        port: 5672
+        username: admin
+        password: mSEypXDraP+XjvaNyfgLwSTD40FXStgl
+        concurrency: 10
+    redis:
+        #host: 47.97.182.148
+        host: 127.0.0.1
+        port: 6379
+        password:
+        #password: kBb8nPH2eIto/dfKvflFpA== #lcx12345
+        maxIdle: 10
+        maxTotal: 50
+        timeout: 6000
+        minIdle: 2
+        maxWaitMillis: 15000
+        redisson:
+            url: redis://${spring.redis.host}:${spring.redis.port}
+            password: ${spring.redis.password}
+
+
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/feng?useUnicode=true&characterEncoding=utf8
+        username: root
+        password: Ysk20230420.
+#        password: YSpTyJ+5mUJFMfNzKhelrQ== #feng
+        initialSize: 3
+        minIdle: 3
+        maxActive: 25
+        maxWait: 60000
+        timeBetweenEvictionRunsMillis: 90000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 1 from dual
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        maxPoolPreparedStatementPerConnectionSize: 20
+        removeAbandoned: false
+        removeAbandonedTimeout: 1800
+        logAbandoned: true
